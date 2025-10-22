@@ -1,0 +1,35 @@
+# Python関連
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+*.egg-info/
+
+# 環境変数（重要）
+.env
+.streamlit/secrets.toml
+
+# IDE設定
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS関連
+.DS_Store
+Thumbs.db
+
+# Git関連
+.git/
+.gitignore
+
+# ログファイル
+*.log
+analysis_logs.json
+
+# テスト
+test_analysis.py

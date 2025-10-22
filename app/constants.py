@@ -3,9 +3,12 @@
 アプリケーション全体で使用する定数を管理
 """
 
+import os
+
 # ファイルパス
-DEFAULT_CSV_PATH = "generated_cycles_4zones_2000rows.csv"
-ICON_PATH = "assets/robot_icon.png"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DEFAULT_CSV_PATH = os.path.join(BASE_DIR, "data", "generated_cycles_4zones_2000rows.csv")
+ICON_PATH = os.path.join(BASE_DIR, "assets", "robot_icon.png")
 
 # ゾーン定義
 ZONES = ["A_Assemble", "A2_Assemble", "B_Assemble", "B2_Assemble"]
@@ -30,5 +33,5 @@ LLM_TEMPERATURE = 0.7
 LLM_MAX_TOKENS = 2000
 
 # ログ設定
-LOG_FILE_PATH = "analysis_logs.json"
+LOG_FILE_PATH = os.path.join(BASE_DIR, "analysis_logs.json")
 PROMPT_VERSION = "v1.0.0"

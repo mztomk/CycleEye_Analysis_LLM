@@ -68,7 +68,7 @@ def display_outliers_list(df_clean):
             display_cols = ["zone_name", "adjusted_time_seconds", "iqr_flag", "zscore_flag"]
             if "is_outlier" in high_conf.columns:
                 display_cols.append("is_outlier")
-            st.dataframe(high_conf[display_cols].head(50), use_container_width=True)
+            st.dataframe(high_conf[display_cols].head(50).reset_index(drop=True), use_container_width=True, hide_index=True)
         else:
             st.info("高信頼異常値は検出されませんでした")
     
@@ -77,7 +77,7 @@ def display_outliers_list(df_clean):
             display_cols = ["zone_name", "adjusted_time_seconds", "iqr_flag", "zscore_flag"]
             if "is_outlier" in low_conf.columns:
                 display_cols.append("is_outlier")
-            st.dataframe(low_conf[display_cols].head(50), use_container_width=True)
+            st.dataframe(high_conf[display_cols].head(50).reset_index(drop=True), use_container_width=True, hide_index=True)
         else:
             st.info("低信頼異常値は検出されませんでした")
 

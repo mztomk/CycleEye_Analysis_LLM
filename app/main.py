@@ -38,7 +38,7 @@ st.set_page_config(
 
 
 def main():
-    st.title("🏭 製造ラインデータ可視化・解析システム")
+    st.title("CycleEye -製造ラインデータ可視化・解析システム-")
     
     # OpenAIクライアント初期化
     client, client_error = init_openai_client()
@@ -50,7 +50,7 @@ def main():
     st.sidebar.header("⚙️ 設定")
     
     # 目標設定（全ゾーン統一デフォルト5秒）
-    st.sidebar.subheader("🎯 目標設定（秒）")
+    st.sidebar.subheader(" 目標タクト設定（秒）")
     target_values = {}
     for zone in ZONES:
         target_values[zone] = st.sidebar.number_input(

@@ -50,13 +50,13 @@ def plot_histograms(df, target_values, bins=30):
             row=row, col=col
         )
         
-        fig.update_xaxes(range=x_range, title_text="調整時間 (秒)", row=row, col=col)
-        fig.update_yaxes(title_text="頻度", row=row, col=col)
+        fig.update_xaxes(range=x_range, title_text="組立時間 (秒)", row=row, col=col)
+        fig.update_yaxes(title_text="サイクル数", row=row, col=col)
     
     fig.update_layout(
         height=CHART_HEIGHT,
         showlegend=False,
-        title_text="ヒストグラム（全ゾーン統一スケール + 目標値）"
+        title_text="ヒストグラム"
     )
     return fig
 
@@ -115,12 +115,12 @@ def plot_timeseries(df, target_values, show_ma=False, ma_window=5):
                 row=row, col=col
             )
         
-        fig.update_xaxes(title_text="サイクル/時刻", row=row, col=col)
-        fig.update_yaxes(range=Y_AXIS_RANGE, title_text="調整時間 (秒)", row=row, col=col)
+        fig.update_xaxes(title_text="時刻", row=row, col=col)
+        fig.update_yaxes(range=Y_AXIS_RANGE, title_text="組立時間 (秒)", row=row, col=col)
     
     fig.update_layout(
         height=CHART_HEIGHT,
         showlegend=False,
-        title_text="時系列グラフ（縦軸統一: 4~12秒 + 目標値）"
+        title_text="時系列グラフ"
     )
     return fig
