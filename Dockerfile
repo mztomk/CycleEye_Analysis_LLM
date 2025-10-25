@@ -13,9 +13,10 @@ COPY app/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # アプリケーションコードをコピー
-COPY app/ .
-COPY data/ ./data/
-COPY assets/ ./assets/
+COPY app/ /app/
+COPY data/ /data/
+COPY assets/ /assets/
+COPY app/.streamlit /app/.streamlit
 
 # Streamlit用ポート
 EXPOSE 8501

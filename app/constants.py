@@ -6,9 +6,10 @@
 import os
 
 # ファイルパス
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DEFAULT_CSV_PATH = os.path.join(BASE_DIR, "data", "generated_cycles_4zones_2000rows.csv")
-ICON_PATH = os.path.join(BASE_DIR, "assets", "robot_icon.png")
+APP_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(APP_DIR)
+DEFAULT_CSV_PATH = os.path.join(PROJECT_ROOT, "data", "generated_cycles_4zones_2000rows.csv")
+ICON_PATH = os.path.join(PROJECT_ROOT, "assets", "robot_icon.png")
 
 # ゾーン定義
 ZONES = ["A_Assemble", "A2_Assemble", "B_Assemble", "B2_Assemble"]
