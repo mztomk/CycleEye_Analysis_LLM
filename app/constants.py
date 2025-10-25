@@ -31,7 +31,3 @@ TARGET_LINE_WIDTH = 2
 LLM_MODEL = "gpt-4o"
 LLM_TEMPERATURE = 0.7
 LLM_MAX_TOKENS = 2000
-
-# ログ設定
-LOG_FILE_PATH = os.path.join(BASE_DIR, "analysis_logs.json")
-PROMPT_VERSION = "v1.0.0"

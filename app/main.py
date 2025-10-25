@@ -12,7 +12,6 @@ from constants import (
     DEFAULT_CSV_PATH, ZONES, DEFAULT_TARGET,
     DEFAULT_THRESHOLD_GOOD, DEFAULT_THRESHOLD_OK,
     DEFAULT_BINS, DEFAULT_SHOW_MA, DEFAULT_MA_WINDOW,
-    LOG_FILE_PATH, PROMPT_VERSION
 )
 from data_processing import (
     load_csv_data, preprocess_data, analyze_outliers, calculate_statistics
@@ -144,41 +143,6 @@ def main():
         # ========== LLM分析結果 ==========
         display_llm_analysis(client, llm_json, analyze_with_llm)
         
-        # ========== JSON出力 ==========
-        st.subheader("📄 JSON出力（LLM向けデータ）")
-        with st.expander("JSONを表示", expanded=False):
-            st.json(llm_json)
-        
-        # JSONダウンロード
-        json_str = json.dumps(llm_json, ensure_ascii=False, indent=2)
-        st.download_button(
-            label="📥 JSONをダウンロード",
-            data=json_str,
-            file_name=f"analysis_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json",
-            mime="application/json"
-        )
-        
-        # ========== ログ保存 ==========
-        log_entry = {
-            "timestamp": datetime.now().isoformat(),
-            "csv_file": DEFAULT_CSV_PATH,
-            "targets": target_values,
-            "prompt_version": PROMPT_VERSION,
-            "llm_used": client is not None
-        }
-        
-        # ログをローカル保存
-        if st.sidebar.button("💾 分析ログを保存"):
-            log_file = Path(LOG_FILE_PATH)
-            logs = []
-            if log_file.exists():
-                with open(log_file, "r", encoding="utf-8") as f:
-                    logs = json.load(f)
-            logs.append(log_entry)
-            with open(log_file, "w", encoding="utf-8") as f:
-                json.dump(logs, f, ensure_ascii=False, indent=2)
-            st.sidebar.success("ログを保存しました")
-    
     else:
         st.info("👈 サイドバーの「🚀 分析を実行」ボタンをクリックして分析を開始してください")
 
