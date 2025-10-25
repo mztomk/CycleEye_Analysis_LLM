@@ -55,7 +55,7 @@ app/
 | **AI/LLM** | OpenAI GPT-4o (API) |
 | **インフラ** | Docker / Docker Compose |
 
-## 🚀 デモ実行
+## デモ実行
 
 ### 前提条件
 - Docker & Docker Compose
