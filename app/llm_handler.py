@@ -19,15 +19,15 @@ def init_openai_client():
     try:
         api_key = None
         
-        # まず.envファイルから読み込みを試みる
+        # 環境変数から取得（AWS Lambda/ECS、またはローカルの.envファイル）
         try:
             from dotenv import load_dotenv
             load_dotenv()
             api_key = os.getenv("OPENAI_API_KEY")
-        except Exception as e:
+        except Exception:
             pass
         
-        # .envで取得できなかった場合、Streamlit Cloudのsecretsを試す
+        # Streamlit Cloudのsecretsから取得
         if not api_key and "OPENAI_API_KEY" in st.secrets:
             api_key = st.secrets["OPENAI_API_KEY"]
         
