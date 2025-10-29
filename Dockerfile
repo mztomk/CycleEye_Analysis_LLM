@@ -22,4 +22,4 @@ COPY app/.streamlit /app/.streamlit
 EXPOSE 8501
 
 # Streamlit実行
-CMD ["streamlit", "run", "main.py", "--server.address", "0.0.0.0"]
+CMD ["streamlit", "run", "main.py", "--server.address", "0.0.0.0", "--server.port", "8501"]
